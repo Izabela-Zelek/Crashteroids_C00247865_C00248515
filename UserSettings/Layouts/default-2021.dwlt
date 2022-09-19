@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 780
     height: 535.5
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 15}
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 781
     height: 535.5
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
@@ -338,7 +338,7 @@ MonoBehaviour:
       name: UnityUnitTestingTutorial
       fullName: UnityUnitTestingTutorial
       resultStatus: 1
-      duration: 0.282727
+      duration: 1.073082
       messages: 
       output: 
       stacktrace: 
@@ -349,12 +349,12 @@ MonoBehaviour:
       categories: []
       parentId: 
       parentUniqueId: 
-    - id: 1008
-      uniqueId: '[Tests][C:/Users/gameuser/Desktop/RWM/Crashteroids_C00247865_C00248515/Library/ScriptAssemblies/Tests.dll][suite]'
+    - id: 1009
+      uniqueId: '[Tests][C:/Users/gameuser/Desktop/Pear/Crashteroids_C00247865_C00248515/Library/ScriptAssemblies/Tests.dll][suite]'
       name: Tests.dll
-      fullName: C:/Users/gameuser/Desktop/RWM/Crashteroids_C00247865_C00248515/Library/ScriptAssemblies/Tests.dll
+      fullName: C:/Users/gameuser/Desktop/Pear/Crashteroids_C00247865_C00248515/Library/ScriptAssemblies/Tests.dll
       resultStatus: 1
-      duration: 0.2009757
+      duration: 0.9971175
       messages: 
       output: 
       stacktrace: 
@@ -370,7 +370,7 @@ MonoBehaviour:
       name: TestSuite
       fullName: TestSuite
       resultStatus: 1
-      duration: 0.1969334
+      duration: 0.9930276
       messages: 
       output: 
       stacktrace: 
@@ -387,7 +387,7 @@ MonoBehaviour:
       name: AsteroidsMoveDown
       fullName: TestSuite.AsteroidsMoveDown
       resultStatus: 1
-      duration: 0.1763894
+      duration: 0.1931206
       messages: 
       output: 
       stacktrace: 
@@ -404,7 +404,7 @@ MonoBehaviour:
       name: DestroyedAsteroidRaisesScore
       fullName: TestSuite.DestroyedAsteroidRaisesScore
       resultStatus: 1
-      duration: 0.1157333
+      duration: 0.1169993
       messages: 
       output: 
       stacktrace: 
@@ -421,7 +421,7 @@ MonoBehaviour:
       name: GameOverOccursOnAsteroidCollision
       fullName: TestSuite.GameOverOccursOnAsteroidCollision
       resultStatus: 1
-      duration: 0.1076778
+      duration: 0.1105164
       messages: 
       output: 
       stacktrace: 
@@ -438,7 +438,7 @@ MonoBehaviour:
       name: LaserDestroysAsteroid
       fullName: TestSuite.LaserDestroysAsteroid
       resultStatus: 1
-      duration: 0.107201
+      duration: 0.1089948
       messages: 
       output: 
       stacktrace: 
@@ -455,7 +455,7 @@ MonoBehaviour:
       name: LaserMovesUp
       fullName: TestSuite.LaserMovesUp
       resultStatus: 1
-      duration: 0.1074829
+      duration: 0.1086019
       messages: 
       output: 
       stacktrace: 
@@ -472,7 +472,7 @@ MonoBehaviour:
       name: NewGameRestartsGame
       fullName: TestSuite.NewGameRestartsGame
       resultStatus: 1
-      duration: 0.009532
+      duration: 0.0115728
       messages: 
       output: 
       stacktrace: 
@@ -489,7 +489,7 @@ MonoBehaviour:
       name: ScoreSetToZeroNewGame
       fullName: TestSuite.ScoreSetToZeroNewGame
       resultStatus: 1
-      duration: 0.1831174
+      duration: 0.1104309
       messages: 
       output: 
       stacktrace: 
@@ -501,12 +501,46 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: Tests.dll/[Tests][TestSuite][suite]
-    m_ResultText: ScoreSetToZeroNewGame (0.183s)
+    - id: 1009
+      uniqueId: Tests.dll/TestSuite/[Tests][TestSuite.ShipCanMoveLeft]
+      name: ShipCanMoveLeft
+      fullName: TestSuite.ShipCanMoveLeft
+      resultStatus: 1
+      duration: 0.1080569
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][TestSuite][suite]
+    - id: 1010
+      uniqueId: Tests.dll/TestSuite/[Tests][TestSuite.ShipCanMoveRight]
+      name: ShipCanMoveRight
+      fullName: TestSuite.ShipCanMoveRight
+      resultStatus: 1
+      duration: 0.1083459
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.dll/[Tests][TestSuite][suite]
+    m_ResultText: ShipCanMoveRight (0.108s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 21c8a5e0
-      m_LastClickedID: -526006239
+      m_SelectedIDs: 1326cbd2
+      m_LastClickedID: -758438381
       m_ExpandedIDs: 423611a9bceaf8e14dad7d137b2c726745dca17bffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -627,22 +661,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/RW/Scripts
+    - Assets/RW/Tests
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/RW/Scripts
+  - Assets/RW/Tests
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\gameuser\Desktop\RWM\Crashteroids_C00247865_C00248515
+  m_LastProjectPath: C:\Users\gameuser\Desktop\Pear\Crashteroids_C00247865_C00248515
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 8a4d0000
-    m_LastClickedID: 19850
-    m_ExpandedIDs: 00000000464d0000484d000000ca9a3bffffff7f
+    m_SelectedIDs: ac4d0000
+    m_LastClickedID: 19884
+    m_ExpandedIDs: 00000000444d0000864d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -670,7 +704,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000464d0000484d0000
+    m_ExpandedIDs: 00000000444d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -695,8 +729,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 56100000
-    m_LastClickedInstanceID: 4182
+    m_SelectedInstanceIDs: 46110000
+    m_LastClickedInstanceID: 4422
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -802,7 +836,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e2edffff22eeffffeeefffffc6f2ffff06f3ffffccf8ffff26fbffff
+      m_ExpandedIDs: e0d3ffff1ed4ffffcadbffff00ddffff3eddfffffee4ffff1ce6ffff5ae6ffff20e8ffffa8e9ffffe6e9ffffacebffff60edffff9eedffff78efffffbaf2fffff8f2ffff5af9ffff28fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
