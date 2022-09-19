@@ -44,10 +44,9 @@ public class TestSuite
     [UnityTest]
     public IEnumerator NewGameRestartsGame()
     {
-        //1
         game.isGameOver = true;
         game.NewGame();
-        //2
+
         Assert.False(game.isGameOver);
         yield return null;
     }
@@ -55,15 +54,37 @@ public class TestSuite
     [UnityTest]
     public IEnumerator LaserMovesUp()
     {
-        // 1
         GameObject laser = game.GetShip().SpawnLaser();
-        // 2
+
         float initialYPos = laser.transform.position.y;
         yield return new WaitForSeconds(0.1f);
-        // 3
+
         Assert.Greater(laser.transform.position.y, initialYPos);
     }
 
+    [UnityTest]
+    public IEnumerator LaserDestroysAsteroid()
+    {
+        GameObject asteroid = game.GetSpawner().SpawnAsteroid();
+        asteroid.transform.position = Vector3.zero;
+        GameObject laser = game.GetShip().SpawnLaser();
+        laser.transform.position = Vector3.zero;
+        yield return new WaitForSeconds(0.1f);
+
+        UnityEngine.Assertions.Assert.IsNull(asteroid);
+    }
+
+    [UnityTest]
+    public IEnumerator DestroyedAsteroidRaisesScore()
+    {
+        GameObject asteroid = game.GetSpawner().SpawnAsteroid();
+        asteroid.transform.position = Vector3.zero;
+        GameObject laser = game.GetShip().SpawnLaser();
+        laser.transform.position = Vector3.zero;
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.AreEqual(game.score, 1);
+    }
 
 }
 
