@@ -157,4 +157,9 @@ public class Game : MonoBehaviour
     {
         return spawner.GetComponent<Spawner>();
     }
+
+    public void increaseHealth()
+    {
+       instance.health += 10;
+    }
 }

@@ -52,6 +52,8 @@ public class Ship : MonoBehaviour
     private float maxUp = 2f;
     private float maxDown = -3.5f;
 
+    public Game game;
+
     private void Update()
     {
         if (isDead)
@@ -170,5 +172,14 @@ public class Ship : MonoBehaviour
     public void setYPositionForDownMovement()
     {
         gameObject.transform.position = new Vector3(2.0f, -3.5f, 0.0f);
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Orb")
+        {
+            Destroy(collision.gameObject);
+            game.increaseHealth();
+        }
     }
 }
