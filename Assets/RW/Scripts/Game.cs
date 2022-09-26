@@ -37,10 +37,15 @@ public class Game : MonoBehaviour
 {
     public int score = 0;
     public int health = 100;
-    public bool isGameOver = false;
+    private int asteroidCounter = 0;
+    private int orbSpawnChance;
+    public bool isGameOver ;
+    public bool healthOrbSpawned;
 
     [SerializeField]
     private GameObject shipModel;
+    [SerializeField]
+    private GameObject orbModel;
     [SerializeField]
     private GameObject startGameButton;
     [SerializeField]
@@ -63,6 +68,8 @@ public class Game : MonoBehaviour
         gameOverText.enabled = false;
         scoreText.enabled = false;
         healthText.enabled = false;
+        orbSpawnChance = 10;
+        healthOrbSpawned = false;
         startGameButton.SetActive(true);
     }
 
@@ -119,6 +126,20 @@ public class Game : MonoBehaviour
         if(instance.health <= 0)
         {
             GameOver();
+        }
+    }
+
+    public static void increaseCounter(Vector3 shipPos)
+    {
+        if (!instance.healthOrbSpawned)
+        { 
+            instance.asteroidCounter++; 
+        }
+        if(instance.asteroidCounter == instance.orbSpawnChance)
+        {
+            instance.healthOrbSpawned = true;
+            instance.asteroidCounter = 0;
+            Instantiate(instance.orbModel, shipPos, instance.orbModel.transform.rotation);
         }
     }
 

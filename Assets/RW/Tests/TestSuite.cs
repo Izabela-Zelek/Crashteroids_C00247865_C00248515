@@ -196,5 +196,21 @@ public class TestSuite
 
         Assert.AreEqual(prevYPos, afterYpos);
     }
+
+    [UnityTest]
+    public IEnumerator asteroidsCanDropOrbs()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject asteroid = game.GetSpawner().SpawnAsteroid();
+            asteroid.transform.position = Vector3.zero;
+            GameObject laser = game.GetShip().SpawnLaser();
+            laser.transform.position = Vector3.zero;
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        Assert.AreEqual(game.healthOrbSpawned, true);
+    }
 }
 

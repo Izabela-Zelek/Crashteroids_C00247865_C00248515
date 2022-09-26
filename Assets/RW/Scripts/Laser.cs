@@ -50,6 +50,7 @@ public class Laser : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Asteroid>() != null)
         {
+            Game.increaseCounter(collision.gameObject.transform.position);
             Game.AsteroidDestroyed();
             Destroy(gameObject);
             spawner.asteroids.Remove(collision.gameObject);
