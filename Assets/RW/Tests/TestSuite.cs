@@ -145,9 +145,22 @@ public class TestSuite
     [UnityTest]
     public IEnumerator shipStop()
     {
-        game.GetShip().setPositionY();
+        game.GetShip().setPositionYForUpMovement();
         float prevYPos = game.GetShip().transform.position.y;
         game.GetShip().MoveUp();
+        float afterYpos = game.GetShip().transform.position.y;
+
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.AreEqual(prevYPos, afterYpos);
+    }
+
+    [UnityTest]
+    public IEnumerator shipStopMovingDown()
+    {
+        game.GetShip().setYPositionForDownMovement();
+        float prevYPos = game.GetShip().transform.position.y;
+        game.GetShip().MoveDown();
         float afterYpos = game.GetShip().transform.position.y;
 
         yield return new WaitForSeconds(0.1f);

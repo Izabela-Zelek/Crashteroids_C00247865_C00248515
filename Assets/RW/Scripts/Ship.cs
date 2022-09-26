@@ -86,7 +86,7 @@ public class Ship : MonoBehaviour
 
         if(Input.GetKey(KeyCode.T))
         {
-            setPositionY();
+            setPositionYForUpMovement();
         }
     }
 
@@ -162,8 +162,13 @@ public class Ship : MonoBehaviour
         isDead = false;
     }
 
-    public void setPositionY()
+    public void setPositionYForUpMovement()
     {
         gameObject.transform.position = new Vector3(2.0f, 2.0f, 0.0f);
+    }
+
+    public void setYPositionForDownMovement()
+    {
+        gameObject.transform.position = new Vector3(2.0f, -3.5f, 0.0f);
     }
 }
