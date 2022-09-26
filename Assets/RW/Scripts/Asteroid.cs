@@ -48,6 +48,7 @@ public class Asteroid : MonoBehaviour
         if (transform.position.y < maxY)
         {
             Destroy(gameObject);
+            Game.LoseHealth();
         }
     }
 
@@ -55,8 +56,8 @@ public class Asteroid : MonoBehaviour
     {
         if (collision.gameObject.name == "ShipModel")
         {
-            Game.GameOver();
             Destroy(gameObject);
+            Game.LoseHealth();
         }
     }
 }

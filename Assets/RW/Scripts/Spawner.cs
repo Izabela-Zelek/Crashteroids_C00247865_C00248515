@@ -52,7 +52,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.8f);
 
         SpawnAsteroid();
         StartCoroutine("Spawn");

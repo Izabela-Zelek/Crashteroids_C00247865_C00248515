@@ -35,7 +35,7 @@ using UnityEngine;
 public class Ship : MonoBehaviour
 {
     public bool isDead = false;
-    public float speed = 1;
+    public float speed = 4;
     public bool canShoot = true;
 
     [SerializeField]

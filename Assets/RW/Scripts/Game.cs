@@ -36,6 +36,7 @@ using UnityEngine.UI;
 public class Game : MonoBehaviour
 {
     public int score = 0;
+    public int health = 100;
     public bool isGameOver = false;
 
     [SerializeField]
@@ -46,6 +47,8 @@ public class Game : MonoBehaviour
     private Text gameOverText;
     [SerializeField]
     private Text scoreText;
+    [SerializeField]
+    private Text healthText;
     [SerializeField]
     private Text titleText;
     [SerializeField]
@@ -59,11 +62,14 @@ public class Game : MonoBehaviour
         titleText.enabled = true;
         gameOverText.enabled = false;
         scoreText.enabled = false;
+        healthText.enabled = false;
         startGameButton.SetActive(true);
     }
 
     public static void GameOver()
     {
+        instance.health = 0;
+        instance.healthText.text = "Health: " + instance.health;
         instance.titleText.enabled = true;
         instance.startGameButton.SetActive(true);
         instance.isGameOver = true;
@@ -80,8 +86,11 @@ public class Game : MonoBehaviour
         shipModel.transform.position = new Vector3(0, -3.22f, 0);
         shipModel.transform.eulerAngles = new Vector3(90, 180, 0);
         score = 0;
+        health = 100;
         scoreText.text = "Score: " + score;
         scoreText.enabled = true;
+        healthText.text = "Health: " + health;
+        healthText.enabled = true;
         spawner.BeginSpawning();
         shipModel.GetComponent<Ship>().RepairShip();
         spawner.ClearAsteroids();
@@ -92,6 +101,30 @@ public class Game : MonoBehaviour
     {
         instance.score++;
         instance.scoreText.text = "Score: " + instance.score;
+    }
+
+    public static void LoseHealth()
+    {
+        if (instance.health > 0)
+        {
+            instance.health = instance.health - 5;
+            instance.healthText.text = "Health: " + instance.health;
+        }
+
+        checkHealth();
+    }
+
+    public static void checkHealth()
+    {
+        if(instance.health <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    public int GetInstanceHealth()
+    {
+        return instance.health;
     }
 
     public Ship GetShip()

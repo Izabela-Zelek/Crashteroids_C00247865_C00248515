@@ -32,13 +32,15 @@ public class TestSuite
     }
 
     [UnityTest]
-    public IEnumerator GameOverOccursOnAsteroidCollision()
+    public IEnumerator LoseHealthOnAsteroidCollision()
     {
         GameObject asteroid = game.GetSpawner().SpawnAsteroid();
         asteroid.transform.position = game.GetShip().transform.position;
-        yield return new WaitForSeconds(0.1f);
+        int prevhealth = game.health;
 
-        Assert.True(game.isGameOver);
+        yield return new WaitForSeconds(2.0f);
+
+        Assert.Less(game.GetInstanceHealth(), prevhealth);
     }
 
     [UnityTest]
@@ -118,6 +120,33 @@ public class TestSuite
         yield return new WaitForSeconds(0.1f);
 
         Assert.Less(prevXPos, game.GetShip().transform.position.x);
+    }
+
+    [UnityTest]
+    public IEnumerator PlayerHealthDecreases()
+    {
+        GameObject asteroid = game.GetSpawner().SpawnAsteroid();
+        asteroid.transform.position = new Vector3(3.0f,3.0f);
+        int prevhealth = game.health;
+
+        yield return new WaitForSeconds(2.0f);
+
+        Assert.Less(game.GetInstanceHealth(), prevhealth);
+     }
+
+    [UnityTest]
+    public IEnumerator  checkZeroHealth()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject asteroid = game.GetSpawner().SpawnAsteroid();
+            asteroid.transform.position = new Vector3(3.0f, asteroid.transform.position.y);
+
+            yield return new WaitForSeconds(0.5f);
+        }
+        yield return new WaitForSeconds(2.0f);
+
+        Assert.AreEqual(game.GetInstanceHealth(), 0);
     }
 }
 
