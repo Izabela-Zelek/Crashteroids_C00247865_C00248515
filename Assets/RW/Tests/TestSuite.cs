@@ -148,5 +148,53 @@ public class TestSuite
 
         Assert.AreEqual(game.GetInstanceHealth(), 0);
     }
+
+    [UnityTest]
+    public IEnumerator shipMoveUp()
+    {
+        float prevYPos = game.GetShip().transform.position.y;
+        game.GetShip().MoveUp();
+
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.Less(prevYPos, game.GetShip().transform.position.y);
+    }
+
+    [UnityTest]
+    public IEnumerator shipCanMoveDown()
+    {
+        float prevYPos = game.GetShip().transform.position.y;
+        game.GetShip().MoveDown();
+
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.Greater(prevYPos, game.GetShip().transform.position.y);
+    }
+
+    [UnityTest]
+    public IEnumerator shipStop()
+    {
+        game.GetShip().setPositionYForUpMovement();
+        float prevYPos = game.GetShip().transform.position.y;
+        game.GetShip().MoveUp();
+        float afterYpos = game.GetShip().transform.position.y;
+
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.AreEqual(prevYPos, afterYpos);
+    }
+
+    [UnityTest]
+    public IEnumerator shipStopMovingDown()
+    {
+        game.GetShip().setYPositionForDownMovement();
+        float prevYPos = game.GetShip().transform.position.y;
+        game.GetShip().MoveDown();
+        float afterYpos = game.GetShip().transform.position.y;
+
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.AreEqual(prevYPos, afterYpos);
+    }
 }
 

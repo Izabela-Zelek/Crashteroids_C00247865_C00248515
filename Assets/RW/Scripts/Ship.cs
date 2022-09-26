@@ -49,6 +49,8 @@ public class Ship : MonoBehaviour
 
     private float maxLeft = -8;
     private float maxRight = 8;
+    private float maxUp = 2f;
+    private float maxDown = -3.5f;
 
     private void Update()
     {
@@ -70,6 +72,21 @@ public class Ship : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             MoveRight();
+        }
+
+        if(Input.GetKey(KeyCode.UpArrow))
+        {
+            MoveUp();
+        }
+
+        if(Input.GetKey(KeyCode.DownArrow))
+        {
+            MoveDown();
+        }
+
+        if(Input.GetKey(KeyCode.T))
+        {
+            setPositionYForUpMovement();
         }
     }
 
@@ -112,6 +129,25 @@ public class Ship : MonoBehaviour
         }
     }
 
+    public void MoveUp()
+    {
+        transform.Translate(-Vector3.forward * Time.deltaTime * speed);
+        if(transform.position.y > maxUp)
+        {
+            transform.position = new Vector3(gameObject.transform.position.x , maxUp , 0);
+        }
+
+    }
+
+    public void MoveDown()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        if(transform.position.y < maxDown)
+        {
+            transform.position = new Vector3(gameObject.transform.position.x, maxDown, 0);
+        }
+    }
+
     public void Explode()
     {
         mesh.enabled = false;
@@ -124,5 +160,15 @@ public class Ship : MonoBehaviour
         explosion.SetActive(false);
         mesh.enabled = true;
         isDead = false;
+    }
+
+    public void setPositionYForUpMovement()
+    {
+        gameObject.transform.position = new Vector3(2.0f, 2.0f, 0.0f);
+    }
+
+    public void setYPositionForDownMovement()
+    {
+        gameObject.transform.position = new Vector3(2.0f, -3.5f, 0.0f);
     }
 }
